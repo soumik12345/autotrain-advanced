@@ -396,6 +396,12 @@ class RunAutoTrainDreamboothCommand(BaseAutoTrainCommand):
                 "action": "store_true",
             },
             {
+                "arg": "--log_to_wandb",
+                "help": "Logging to Weights & Biases",
+                "required": False,
+                "action": "store_true",
+            },
+            {
                 "arg": "--username",
                 "help": "Hugging Face Hub Username",
                 "required": False,
@@ -443,6 +449,7 @@ class RunAutoTrainDreamboothCommand(BaseAutoTrainCommand):
             "push_to_hub",
             "logging",
             "prior_preservation",
+            "log_to_wandb"
         ]
 
         for arg_name in store_true_arg_names:
