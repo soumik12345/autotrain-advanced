@@ -259,6 +259,11 @@ def train(config):
         collate_fn=lambda examples: collate_fn(examples, config),
         num_workers=config.dataloader_num_workers,
     )
+
+    report_to = "tensorboard"
+    if config.log_to_wandb:
+        report_to = "wandb"
+
     trainer = Trainer(
         unet=unet,
         vae=vae,
@@ -273,6 +278,7 @@ def train(config):
         text_lora_parameters=text_lora_parameters,
         unet_lora_parameters=unet_lora_parameters,
         tokenizers=tokenizers,
+        report_to=report_to,
     )
     trainer.train()
 

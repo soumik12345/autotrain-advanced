@@ -396,7 +396,7 @@ class RunAutoTrainDreamboothCommand(BaseAutoTrainCommand):
                 "action": "store_true",
             },
             {
-                "arg": "--log_to_wandb",
+                "arg": "--log-to-wandb",
                 "help": "Logging to Weights & Biases",
                 "required": False,
                 "action": "store_true",
