@@ -260,11 +260,8 @@ def train(config):
         num_workers=config.dataloader_num_workers,
     )
 
-    report_to = "tensorboard"
-    if config.log_to_wandb:
-        report_to = "wandb"
-
     trainer = Trainer(
+        **dict(args=TrainingArguments(**dict(report_to=log_with))),
         unet=unet,
         vae=vae,
         train_dataloader=train_dataloader,
